@@ -1,8 +1,13 @@
 Package: foofactorsran
-Title: What the Package Does (one line, title case)
+Title: Make factors less annoying
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Ran", "Wang", email = "ran.polerannie@gmail.com", role = c("aut", "cre"))
+Description: This package extends the foofactor package built in
+	  STAT547 class.
 Depends: R (>= 3.2.2)
-License: What license is it under?
+License: MIT + file LICENSE
 LazyData: true
+Suggests: testthat
+Imports: dplyr
+URL: https://github.com/wang114/foofactorsran
+BugReports: https://github.com/wang114/foofactorsran/issues
