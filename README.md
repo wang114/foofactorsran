@@ -24,10 +24,14 @@ Note that some functions in this packages requires `dplyr`.
 
 To get started, read the notes on this page and read into `vignette:hello-foofactorsran` for details.
 
-Fortors in `R` are vectors of a finite length which takes on certain number of different values (levels). They are usually characters or numeric. Statistically, factors are refered as categorical variavles. We usually expect each level of the factor to appear multiple times in the vector, but it's upto the user how to construct the factor. Some really simple examples are:
+Fortors in `R` are vectors of a finite length which takes on certain number of different values (levels). They are usually characters or numeric. Statistically, factors are refered as categorical variavles. We usually expect each level of the factor to appear multiple times in the vector, but it's upto the user how to construct the factor.
 
-`r     x <- c(1,2,3)     class(x)     factor(x)`
+Some really simple examples are:
 
-`age_group()` takes a numeric vector (age) which each element in the vector bigger than 0 and smaller than 120 to be a valid age. It returns a factor of the same length as the input and replaces each age by its agegroup. The age groups are defined as follows:
+`r     x <- c(1,2,2,"a","a")     class(x)     (y1 <- factor(x))     (y2 <- factor(x, labels = c("red","blue","apple")))     (y3 <- factor(x, levels = c("1","2","a","b")))     levels(y1)     levels(y2)`
 
-0\<x\<=14: "Children" 14\<x\<=24: "Youth" 24\<x\<=65: "Adult" 65\<x : "Senior"
+Factors are confusing in a lot of ways. The levels of a factor are the possible values that the vector x will take, so `x%in%levels==FALSE` does not make sense in general. However, levels of x may not be all appeared in x, and `droplevels()` is the functions that drops the unused levels of x. The lables argument replaces each element of x by labling the levels of x.
+
+The order of the factor levels matter a lot, especially in plots. The default order of factor levels is alphabetical, which is meaningless under a lot of situation. Functions in this package will help you to reorder factor levels in a much easy way.
+
+Please also read [Be the boss of your factors](http://stat545-ubc.github.io/block014_factors.html) to learn more about factors in `R`.
