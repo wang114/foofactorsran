@@ -3,7 +3,7 @@ Title: Make factors less annoying
 Version: 0.0.0.9000
 Authors@R: person("Ran", "Wang", email = "ran.polerannie@gmail.com", role = c("aut", "cre"))
 Description: This package extends the foofactor package built in
-	  STAT547 class.
+	  STAT547 class.It contains new functions that help to define age groups, and to reorder factor levels.
 Depends: R (>= 3.2.2)
 License: MIT + file LICENSE
 LazyData: true
