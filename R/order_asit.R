@@ -3,7 +3,7 @@
 #'
 #' @param x a vector or a factor
 #'
-#' @return x a factor with levels in the order appeared in x.
+#' @return a factor with levels in the order appeared in x.
 #' If x is originally a factor with unused levels, these unused levels
 #' will be the last levels in the order.
 #' @export
