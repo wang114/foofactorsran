@@ -10,7 +10,7 @@ factor_level(x, level = "alp", ...)
 \item{x}{a vector which is a potential factor}
 
 \item{level}{Valid levels for x, default is "alp".
-User defined level character must match the length of levels of x, and must include all values of x.
+User defined level character must match the number of levels of x, and must include all values of x.
 If equals "alp",levels of x appears alphabetically;
 if equals "asit",levels of x are ordered as they appeared in x.}
 
@@ -20,7 +20,7 @@ if equals "asit",levels of x are ordered as they appeared in x.}
 x as a factor with level orders specified
 }
 \description{
-It turns input as a fator with factor level order defined sepcifically
+It turns input to a fator with factor levels order defined sepcifically
 by user
 }
 \examples{

@@ -20,7 +20,7 @@ This documents contains detailed information of the functions in the `foofactors
 - 24<x<=65: "Adult"
 - 65<x : "Senior"
 
-If `droplevel = FALSE`, the levels for x will be `c("Children","Youth","Adult","Senior")`. If `droplevel = TRUE`, which is also the default setting, the unused levels of age groups will be dropped, but the order of levels stay as the same. 
+If `droplevel = FALSE`, the levels for x will be `c("Children","Youth","Adult","Senior")`. If `droplevel = TRUE`, which is also the default setting, the unused levels of age groups will be dropped, but the order of levels stay the same. 
 
 Example:
 ```{r,include=FALSE}
@@ -47,7 +47,7 @@ oops2 <- age_group(c(-1,56))
 
 ##Reorder factor levels
 
-`factor_level()` is a function that convert the input x to a factor and defines the order of factor levels at the same time. The `level` argument is set to `"alp"` by default which means the levels will be ordered alphabetically. If `level = "asit"`, the  factor levels will be set in the order they appear in x. User can also define the level order as they define in the function `factor()`, other arguments of `factor()` can be passed to `factor_level()` as well.
+`factor_level()` is a function that converts the input x to a factor (if it is not a factor ) and defines the order of factor levels at the same time. The `level` argument is set to `"alp"` by default which means the levels will be ordered alphabetically. If `level = "asit"`, the  factor levels will be set in the order they appear in x. User can also define the level order the way they define in the function `factor()`, other arguments of `factor()` can be passed to `factor_level()` as well.
 
 To avoid turning a value of x to "NA" by defining levels (like `factor()` sometimes does), only level with the same length as original number of levels (or number of levels of as.factor(x) if x is not originally a factor), and the level must include all values of x. Note that `factor_level()` would not drop unused levels if the input x is a factor. 
 

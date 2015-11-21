@@ -8,18 +8,20 @@ helper.age_group <- function(x){
 	return (agegroup)
 }
 
-#' Classify age group
+
+
+#' Classify age groups
 #'
-#'classify the age group of the input age
+#'
+#' classify the age group of the input age
 #'
 #' @param x a vector of ages
+#' @param droplevel if equals TRUE, unused levels of x will be dropped.
 #'
-#' @return factor
+#' @return factor with levels of "Children","Youth","Adult","Senior".
 #' @export
 #'
-#' @examples
-#' age_group(c(2,70,45,22,27))
-
+#' @examples age_group(c(2,70,45,22,27))
 age_group <- function(x,droplevel = TRUE){
 
 	x <- factor(sapply(x,helper.age_group), levels = c("Children","Youth","Adult","Senior"))
@@ -28,3 +30,6 @@ age_group <- function(x,droplevel = TRUE){
 	else {x <- x}
 	return(x)
 }
+
+
+

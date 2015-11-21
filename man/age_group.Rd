@@ -2,15 +2,17 @@
 % Please edit documentation in R/age_group.R
 \name{age_group}
 \alias{age_group}
-\title{Classify age group}
+\title{Classify age groups}
 \usage{
 age_group(x, droplevel = TRUE)
 }
 \arguments{
 \item{x}{a vector of ages}
+
+\item{droplevel}{if equals TRUE, unused levels of x will be dropped.}
 }
 \value{
-factor
+factor with levels of "Children","Youth","Adult","Senior".
 }
 \description{
 classify the age group of the input age

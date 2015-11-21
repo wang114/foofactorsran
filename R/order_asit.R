@@ -1,8 +1,11 @@
 #' Set levels of a factor to the order appeared in data
 #'
-#' @param x a vector
 #'
-#' @return x as a factor
+#' @param x a vector or a factor
+#'
+#' @return x a factor with levels in the order appeared in x.
+#' If x is originally a factor with unused levels, these unused levels
+#' will be the last levels in the order.
 #' @export
 #'
 #' @examples order_asit(c("small","large","median","large","small"))

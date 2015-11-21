@@ -7,10 +7,12 @@
 order_asit(x)
 }
 \arguments{
-\item{x}{a vector}
+\item{x}{a vector or a factor}
 }
 \value{
-x as a factor
+x a factor with levels in the order appeared in x.
+If x is originally a factor with unused levels, these unused levels
+will be the last levels in the order.
 }
 \description{
 Set levels of a factor to the order appeared in data
