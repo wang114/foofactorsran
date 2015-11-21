@@ -1,0 +1,146 @@
+---
+title: "hello-foofactorsran"
+author: "Ran Wang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This documents contains detailed information of the functions in the `foofactorsran` package. 
+
+##Define an age group
+
+`age_group()` takes a numeric vector (ages) with each element in the vector bigger than 0 and smaller than 120 to be a valid age. It returns a factor of the same length as the input and replaces each age by its agegroup. The age groups are defined as follows: 
+
+- 0<x<=14: "Children"
+- 14<x<=24: "Youth"
+- 24<x<=65: "Adult"
+- 65<x : "Senior"
+
+If `droplevel = FALSE`, the levels for x will be `c("Children","Youth","Adult","Senior")`. If `droplevel = TRUE`, which is also the default setting, the unused levels of age groups will be droped, but the order of levels stay as the same. 
+
+Example:
+```{r,include=FALSE}
+library(foofactorsran)
+
+```
+
+
+```{r}
+x <- c(2,45,22,27)
+age_group(x)
+age_group(x,droplevel = T)
+age_group(x,droplevel = FALSE)
+```
+
+
+The following input would produce an error.
+
+```{r,eval=FALSE}
+oops1 <- age_group(c(12,56),droplevel = 2)
+oops2 <- age_group(c(-1,56))
+```
+
+
+##Reorder factor levels
+
+`factor_level()` is a fucntion that convert the input x to a factor and defines the order of factor levels at the same time. The `level` argument is set to `"alp"` by default which means the levels will be ordered alphabatically. If `level = "asit"`, the  factor levels will be set in the order they appear in x. User can also define the level order as they define in the function `factor()`, other arguments of `factor()` can be passed to `factor_level()` as well.
+
+To avoid turing a value of x to "NA" by defining levels (like `factor()` sometimes does), only level with the same length as original number of levels (or number of levels of as.factor(x) if x is not originally a factor), and the level must inclused all values of x. Note that `factor_level()` would not drop unused levels if the input x is a factor. 
+
+Examples:
+
+```{r}
+x <- factor(c("b","b","a","c","d","a"),levels = c("c","a","b","d","e"))
+
+factor_level(x, level = c("e","d","c","b","a"))
+factor_level(x)
+factor_level(x,"asit")
+```
+
+
+The following will produce an error.
+
+```{r, eval=FALSE}
+
+y <- c("aa","aa","cc","bb","cc")
+z <- as.factor(y)
+factor_level(y, level = c("aa","cc"))
+factor_level(z, level = c("aa","cc"))
+
+factor_level(y, level = c("red","green","blue"))
+factor_level(z, level = c("red","green","blue"))
+```
+
+Factor_level() can pass arguments of the function `factor()` only if the `level`argument is user defined. To see an example:
+
+```{r}
+v <- c("apple","apple","orange","pear")
+factor_level(v,level = c("apple","pear","orange"), labels = c("red","orange","yellow"))
+```
+
+
+`order_asit()` is a function that takes a vector of characters (or a factor) and returns a factor with order of levels defined in the way they appear in x. `order_asit(x)` is equitvalent to `factor_level(x,"asit")`. Note that a warning would show up if the input has many unique values (same thing applies to `factor_level()`). 
+
+```{r}
+w <- as.factor(c("a","b","d","c","e"))
+order_asit(w)
+```
+
+
+
+
+
+
+
+
+Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+
+- Never uses retina figures
+- Has a smaller default figure size
+- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+
+## Vignette Info
+
+Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+
+## Styles
+
+The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+
+    output: 
+      rmarkdown::html_vignette:
+        css: mystyles.css
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))

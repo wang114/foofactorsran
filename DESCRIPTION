@@ -7,7 +7,10 @@ Description: This package extends the foofactor package built in
 Depends: R (>= 3.2.2)
 License: MIT + file LICENSE
 LazyData: true
-Suggests: testthat
+Suggests: testthat,
+    knitr,
+    rmarkdown
 Imports: dplyr
 URL: https://github.com/wang114/foofactorsran
 BugReports: https://github.com/wang114/foofactorsran/issues
+VignetteBuilder: knitr
