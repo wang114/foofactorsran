@@ -16,7 +16,7 @@ You can install:
 this package like other packages by:
 
 ``` r
-install.packages("foofactorsran")
+install_github("wang114/foofactorsran")
 ```
 
 Note that some functions in this packages requires `dplyr`.

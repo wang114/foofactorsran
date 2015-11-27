@@ -21,7 +21,7 @@ You can install:
 this package like other packages by:
 
 ```{r, eval=FALSE}
-install.packages("foofactorsran")
+install_github("wang114/foofactorsran")
 ```
 
 
